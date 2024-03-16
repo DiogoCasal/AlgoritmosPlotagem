@@ -1,0 +1,20 @@
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.csproj.AssemblyReference.cache
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.Properties.Resources.resources
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.csproj.GenerateResource.cache
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.csproj.CoreCompileInputs.cache
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\bin\Debug\TrabalhoPratico1.exe.config
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\bin\Debug\TrabalhoPratico1.exe
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\bin\Debug\TrabalhoPratico1.pdb
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.exe
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.pdb
+C:\Users\diogo\source\repos\TrabalhoPratico1\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.tela.resources
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\bin\Debug\TrabalhoPratico1.exe.config
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\bin\Debug\TrabalhoPratico1.exe
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\bin\Debug\TrabalhoPratico1.pdb
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.csproj.AssemblyReference.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.tela.resources
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.Properties.Resources.resources
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.csproj.GenerateResource.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.csproj.CoreCompileInputs.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.exe
+C:\Users\diogo\OneDrive\Área de Trabalho\RepoCompGrafica\AlgoritmosPlotagem\TrabalhoPratico1\obj\Debug\TrabalhoPratico1.pdb
