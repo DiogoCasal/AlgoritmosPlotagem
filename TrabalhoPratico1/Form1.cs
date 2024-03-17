@@ -53,6 +53,7 @@ namespace TrabalhoPratico1
         /// Legacy funtion to draw on canvas
         /// </summary>
 
+        #region FuncoesPadrao
         private void btCor_Click(object sender, EventArgs e)
         {
             DialogResult result = cdlg.ShowDialog();
@@ -121,9 +122,9 @@ namespace TrabalhoPratico1
                 imagem.Image = areaDesenho;
             }
         }
+        #endregion
 
-
-
+        #region DDA
         private void bt_DDA(object sender, EventArgs e)
         {
             retas.Add(x1);
@@ -192,7 +193,9 @@ namespace TrabalhoPratico1
                 Console.WriteLine("Saindo da tela, Erro:" + ex);
             }
         }
+        #endregion
 
+        #region transformacoes2d
         private void translacao(object sender, EventArgs e)
         {
             this.btApagar_Click(sender, e);
@@ -255,7 +258,19 @@ namespace TrabalhoPratico1
             DDALineDraw(areaDesenho, imagem, xRotacionado1, yRotacionado1, xRotacionado2, yRotacionado2);
 
         }
+        private void reflexao(object sender, EventArgs e)
+        {
+            //Reflexo horizontal
+            this.btApagar_Click(sender, e);
+            int xRefletido1 = x1 = -x1;
+            int xRefletido2 = x2 = -x2;
 
+            DDALineDraw(areaDesenho, imagem, xRefletido1, y1, xRefletido2, y2);
+        }
+
+        #endregion
+
+        #region Bresenham
         private void bt_BresenhamLineDraw(object Sender, EventArgs e)
         {
             retas.Add(x1);
@@ -331,7 +346,9 @@ namespace TrabalhoPratico1
 
 
         }
+        #endregion
 
+        #region CirculoBresenham
         private void btCirculoBres(object Sender, EventArgs e)
         {
             int raio = (int)Math.Sqrt(((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
@@ -374,28 +391,9 @@ namespace TrabalhoPratico1
             }
             imagem.Image = areaDesenho;
         }
+        #endregion
 
-        private void reflexao(object sender, EventArgs e)
-        {
-            //Reflexo horizontal
-            this.btApagar_Click(sender, e);
-            int xRefletido1 = x1 = -x1;
-            int xRefletido2 = x2 = -x2;
-
-            DDALineDraw(areaDesenho, imagem, xRefletido1, y1, xRefletido2, y2);
-        }
-
-        // Função para redimensionar um bitmap
-        static Bitmap RedimensionarBitmap(Bitmap original, int largura, int altura)
-        {
-            Bitmap redimensionado = new Bitmap(largura, altura);
-            using (Graphics g = Graphics.FromImage(redimensionado))
-            {
-                g.DrawImage(original, 0, 0, largura, altura);
-            }
-            return redimensionado;
-        }
-
+        #region CohenSutherland
         private void btCohenSutherlandLineDraw(object sender, EventArgs e)
         {
             assist = new Bitmap(imagem.Size.Width,
@@ -423,8 +421,6 @@ namespace TrabalhoPratico1
 
             
         }
-
-        #region Cohen
 
         // Constantes para os códigos de região
         private const int INSIDE = 0; // 0000
@@ -557,6 +553,7 @@ namespace TrabalhoPratico1
         }
         #endregion
 
+        #region LiangBarsky
 
         private void bt_LiangBarskyLineDraw(object sender, EventArgs e)
         {
@@ -585,7 +582,6 @@ namespace TrabalhoPratico1
 
         }
 
-        #region Liang
         
         private bool cliptest(float p, float q, float u1, float u2)
         {
@@ -669,8 +665,8 @@ namespace TrabalhoPratico1
         }
         #endregion
 
+        #region AuxMethods
         //Metodos auxiliares
-
         //Calcula e retorna o valor de incremento para o DDA
         private double calcularValorIncremento(double delta, int passos)
         {
@@ -678,7 +674,16 @@ namespace TrabalhoPratico1
             return retorno;
         }
 
-
-
+        // Função para redimensionar um bitmap
+        static Bitmap RedimensionarBitmap(Bitmap original, int largura, int altura)
+        {
+            Bitmap redimensionado = new Bitmap(largura, altura);
+            using (Graphics g = Graphics.FromImage(redimensionado))
+            {
+                g.DrawImage(original, 0, 0, largura, altura);
+            }
+            return redimensionado;
+        }
+        #endregion
     }
 }
