@@ -176,7 +176,7 @@ namespace TrabalhoPratico1
             this.button6.TabIndex = 17;
             this.button6.Text = "Circulo";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.btCirculo_Click);
+            this.button6.Click += new System.EventHandler(this.btCirculoBres);
             // 
             // Bresenham
             // 
@@ -188,7 +188,7 @@ namespace TrabalhoPratico1
             this.Bresenham.TabIndex = 16;
             this.Bresenham.Text = "Bresenham";
             this.Bresenham.UseVisualStyleBackColor = true;
-            this.Bresenham.Click += new System.EventHandler(this.btBress_Click);
+            this.Bresenham.Click += new System.EventHandler(this.bt_BresenhamLineDraw);
             // 
             // button5
             // 
@@ -321,7 +321,7 @@ namespace TrabalhoPratico1
             this.btDesenhar.TabIndex = 4;
             this.btDesenhar.Text = "DDA";
             this.btDesenhar.UseVisualStyleBackColor = true;
-            this.btDesenhar.Click += new System.EventHandler(this.drawLineAtiv1);
+            this.btDesenhar.Click += new System.EventHandler(this.bt_DDA);
             // 
             // txtY1
             // 
@@ -408,7 +408,7 @@ namespace TrabalhoPratico1
             this.button7.TabIndex = 25;
             this.button7.Text = "Liang-Barsky";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.btLiangBarskyLineDraw);
+            this.button7.Click += new System.EventHandler(this.bt_LiangBarskyLineDraw);
             // 
             // tela
             // 

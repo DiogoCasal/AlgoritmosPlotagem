@@ -52,13 +52,6 @@ namespace TrabalhoPratico1
         /// <summary>
         /// Legacy funtion to draw on canvas
         /// </summary>
-        //private void desenhar_Click(object sender, EventArgs e)
-        //{
-        //    int x = (int)Convert.ToInt64(txtX1.Text);
-        //    int y = (int)Convert.ToInt64(txtY1.Text);
-        //    areaDesenho.SetPixel(x, y, corPreenche);
-        //    imagem.Image = areaDesenho;
-        //}
 
         private void btCor_Click(object sender, EventArgs e)
         {
@@ -131,31 +124,31 @@ namespace TrabalhoPratico1
 
 
 
-        private void drawLineAtiv1(object sender, EventArgs e)
+        private void bt_DDA(object sender, EventArgs e)
         {
             retas.Add(x1);
             retas.Add(y1);
             retas.Add(x2);
             retas.Add(y2);
-            DDA(areaDesenho, imagem, x1, y1, x2, y2);
+            DDALineDraw(areaDesenho, imagem, x1, y1, x2, y2);
         }
 
-        public void DDA(Bitmap bitmap, PictureBox picBox, int x1, int y1, int x2, int y2)
+        public void DDALineDraw(Bitmap bitmap, PictureBox picBox, int x1, int y1, int x2, int y2)
         {
             try
             {
                 int deltaX, deltaY, passos, moduloDeltaX, moduloDeltaY;
                 double x, y, xincrease, yincrease;
 
-                //Pega os pontos iniciais (serviria qualquer um dos pares)
+                //Aloca os pontos iniciais
                 x = x1;
                 y = y1;
 
-                //seta primeiro pixely
+                //Define o primeiro pixel
                 bitmap.SetPixel((int)x, (int)y, corPreenche);
                 picBox.Image = bitmap;
 
-                // Cacula a diferenca entre os pontos (delta)
+                // Cacula o delta
                 deltaX = x2 - x1;
                 deltaY = y2 - y1;
 
@@ -200,75 +193,16 @@ namespace TrabalhoPratico1
             }
         }
 
-        public Bitmap DDA(Bitmap bitmap, int x1, int y1, int x2, int y2)
-        {
-            try
-            {
-                int deltaX, deltaY, passos, moduloDeltaX, moduloDeltaY;
-                double x, y, xincrease, yincrease;
-
-                //Pega os pontos iniciais (serviria qualquer um dos pares)
-                x = x1;
-                y = y1;
-
-                //seta primeiro pixely
-                bitmap.SetPixel((int)x, (int)y, corPreenche);
-
-                // Cacula a diferenca entre os pontos (delta)
-                deltaX = x2 - x1;
-                deltaY = y2 - y1;
-
-                //Ajuste para achar o módulo do delta
-                if (deltaX < 0)
-                    moduloDeltaX = deltaX * (-1);
-                else
-                    moduloDeltaX = deltaX;
-
-                if (deltaY < 0)
-                    moduloDeltaY = deltaY * (-1);
-                else
-                    moduloDeltaY = deltaY;
-
-                //Pega a maior diferenca entre os Xs ou Ys e define como número de passos garantindo que serão preenchidos
-                //todos os pontos entre os dois pontos
-                if (moduloDeltaX > moduloDeltaY)
-                    passos = moduloDeltaX;
-                else
-                    passos = moduloDeltaY;
-
-                //Calculo os incrementos para realizar os avanços pelos eixos (Esses valores serão utilizados como constantes de aumento) 
-                xincrease = calcularValorIncremento((double)deltaX, passos);
-                yincrease = calcularValorIncremento((double)deltaY, passos);
-
-                //realiza os incrementos posteriores repetitivamente
-                for (int i = 1; i <= passos; i++)
-                {
-                    //Aumenta os valores do novo ponto baseado no valor de incremento calculado anterirormente
-                    x += xincrease;
-                    y += yincrease;
-                    //Cria o ponto na tela
-                    bitmap.SetPixel((int)x, (int)y, corPreenche);
-                }
-                return bitmap;
-            }
-            catch (Exception ex)
-            {
-                //O plot continua a ocorrer mesmo violando o tamanho do canva
-                Console.WriteLine("Saindo da tela, Erro:" + ex);
-                return null;
-            }
-        }
-
         private void translacao(object sender, EventArgs e)
         {
             this.btApagar_Click(sender, e);
 
-            int xTransladado1 = x1 = x1 + 2;
-            int yTransladado1 = y1 = y1 + 2;
-            int xTransladado2 = x2 = x2 + 3;
-            int yTransladado2 = y2 = y2 + 3;
+            int x1Translacao = x1 = x1 + 2;
+            int y1Translacao = y1 = y1 + 2;
+            int x2Translacao = x2 = x2 + 3;
+            int y2Translacao = y2 = y2 + 3;
 
-            DDA(areaDesenho, imagem, xTransladado1, yTransladado1, xTransladado2, yTransladado2);
+            DDALineDraw(areaDesenho, imagem, x1Translacao, y1Translacao, x2Translacao, y2Translacao);
 
         }
         private void escala(object sender, EventArgs e)
@@ -282,7 +216,7 @@ namespace TrabalhoPratico1
             int xEscala2 = x2 = (int)(x2 * fatorEscala);
             int yEscala2 = y2 = (int)(y2 * fatorEscala);
 
-            DDA(areaDesenho, imagem, xEscala1, yEscala1, xEscala2, yEscala2);
+            DDALineDraw(areaDesenho, imagem, xEscala1, yEscala1, xEscala2, yEscala2);
         }
 
         private void escalaDown(object sender, EventArgs e)
@@ -296,7 +230,7 @@ namespace TrabalhoPratico1
             int xEscala2 = x2 = (int)(x2 / fatorEscala);
             int yEscala2 = y2 = (int)(y2 / fatorEscala);
 
-            DDA(areaDesenho, imagem, xEscala1, yEscala1, xEscala2, yEscala2);
+            DDALineDraw(areaDesenho, imagem, xEscala1, yEscala1, xEscala2, yEscala2);
         }
 
 
@@ -318,20 +252,20 @@ namespace TrabalhoPratico1
             int yRotacionado2 = y2 = (int)((x2 - PontoMedioX) * Math.Sin(ParaRadianos) + (y2 - PontoMedioY) * Math.Cos(ParaRadianos) + PontoMedioY);
 
             // Desenha a linha baseada nos novos pontos
-            DDA(areaDesenho, imagem, xRotacionado1, yRotacionado1, xRotacionado2, yRotacionado2);
+            DDALineDraw(areaDesenho, imagem, xRotacionado1, yRotacionado1, xRotacionado2, yRotacionado2);
 
         }
 
-        private void btBress_Click(object Sender, EventArgs e)
+        private void bt_BresenhamLineDraw(object Sender, EventArgs e)
         {
             retas.Add(x1);
             retas.Add(y1);
             retas.Add(x2);
             retas.Add(y2);
-            bresenham(x1, y1, x2, y2);
+            BresenhamLineDraw(x1, y1, x2, y2);
         }
 
-        private void bresenham(int x1, int y1, int x2, int y2)
+        private void BresenhamLineDraw(int x1, int y1, int x2, int y2)
         {
             int deltaX = x2 - x1;
             int deltaY = y2 - y1;
@@ -375,7 +309,7 @@ namespace TrabalhoPratico1
                     }
                     areaDesenho.SetPixel(x, y, corPreenche);
                     imagem.Image = areaDesenho;
-                }//fim for
+                }
             }
             else
             {
@@ -396,9 +330,9 @@ namespace TrabalhoPratico1
             }
 
 
-        }//fim funcao
+        }
 
-        private void btCirculo_Click(object Sender, EventArgs e)
+        private void btCirculoBres(object Sender, EventArgs e)
         {
             int raio = (int)Math.Sqrt(((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
             FazerCirculo(x1, y1, raio);
@@ -443,12 +377,12 @@ namespace TrabalhoPratico1
 
         private void reflexao(object sender, EventArgs e)
         {
-            //Reflete horizontalmente (Esta jogando para fora da tela)
+            //Reflexo horizontal
             this.btApagar_Click(sender, e);
             int xRefletido1 = x1 = -x1;
             int xRefletido2 = x2 = -x2;
 
-            DDA(areaDesenho, imagem, xRefletido1, y1, xRefletido2, y2);
+            DDALineDraw(areaDesenho, imagem, xRefletido1, y1, xRefletido2, y2);
         }
 
         // Função para redimensionar um bitmap
@@ -468,13 +402,12 @@ namespace TrabalhoPratico1
             imagem.Size.Height);
             pictureBox1.Image = assist;
 
-            // Agora que determinamos que a linha é aceitável, calculamos o retângulo de recorte
+            // Calculo do retângulo de recorte
             int rectX = Math.Min(x1, x2);
             int rectY = Math.Min(y1, y2);
             int rectWidth = Math.Abs(x2 - x1);
             int rectHeight = Math.Abs(y2 - y1);
 
-            // Certifique-se de que a largura e altura são positivas e que o retângulo está dentro da imagem
             rectWidth = Math.Max(1, rectWidth);
             rectHeight = Math.Max(1, rectHeight);
 
@@ -572,7 +505,7 @@ namespace TrabalhoPratico1
                     }
                     else
                     {
-                        // Calcula a interseção da linha com a área de recorte
+                        // Calcular a interseção da linha com a área de recorte
                         int x, y;
                         int cfora = c1 != 0 ? c1 : c2;
 
@@ -617,26 +550,26 @@ namespace TrabalhoPratico1
                 }
                 if (accept)
                 {
-                    DDA(assist, pictureBox1,x1, y1, x2, y2);
+                    // Desenha a linha dentro do recorte
+                    DDALineDraw(assist, pictureBox1,x1, y1, x2, y2);
                 }
             }
         }
         #endregion
 
 
-        private void btLiangBarskyLineDraw(object sender, EventArgs e)
+        private void bt_LiangBarskyLineDraw(object sender, EventArgs e)
         {
             assist = new Bitmap(imagem.Size.Width,
             imagem.Size.Height);
             pictureBox2.Image = assist;
 
-            // Agora que determinamos que a linha é aceitável, calculamos o retângulo de recorte
+            // Calculo do retângulo de recorte
             int rectX = Math.Min(x1, x2);
             int rectY = Math.Min(y1, y2);
             int rectWidth = Math.Abs(x2 - x1);
             int rectHeight = Math.Abs(y2 - y1);
 
-            // Certifique-se de que a largura e altura são positivas e que o retângulo está dentro da imagem
             rectWidth = Math.Max(1, rectWidth);
             rectHeight = Math.Max(1, rectHeight);
 
@@ -726,8 +659,8 @@ namespace TrabalhoPratico1
                                     x1 += dx * u1;
                                     y1 += dy * u1;
                                 }
-                                // Substitua plot por sua implementação de desenho em C#
-                                DDA(assist, pictureBox2, (int)Math.Round(x1), (int)Math.Round(y1), (int)Math.Round(x2), (int)Math.Round(y2));
+                                // Desenha a linha dentro do recorte
+                                DDALineDraw(assist, pictureBox2, (int)Math.Round(x1), (int)Math.Round(y1), (int)Math.Round(x2), (int)Math.Round(y2));
                             }
                         }
                     }
